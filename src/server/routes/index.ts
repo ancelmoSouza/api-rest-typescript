@@ -1,0 +1,18 @@
+import { Router } from 'express';
+import { StatusCodes } from 'http-status-codes';
+
+const router = Router();
+
+
+router.post('/teste', (req, res) => {
+    console.log(req.body);
+    return res.status(StatusCodes.UNAUTHORIZED).json(req.body);
+    // return res.send({
+    //     status: "success",
+    //     msg: "Ola, dev!"
+    // });
+})
+
+
+
+export { router };
