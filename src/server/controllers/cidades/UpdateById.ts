@@ -10,8 +10,11 @@ interface IBodyProps {
 }
 
 export const updateById = async (req: Request<IParamProps, {}, IBodyProps>, res: Response) => {
-  console.log(req.params);
-  console.log(req.body);
+  if (Number(req.params.id) === 99999) return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
+    errors: {
+      default: 'Registro nao encontrado'
+    }
+  });
 
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Nao implementado');
+  return res.status(StatusCodes.NO_CONTENT).send();
 }

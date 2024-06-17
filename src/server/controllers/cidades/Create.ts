@@ -30,8 +30,5 @@ export const createBodyValidator: RequestHandler = async (req, res, next) => {
 
 
 export const create = async (req: Request<{}, {}, ICidade>, res: Response) => {
-
-  console.log(req.body);
-
-  return res.send({ 'option': 'Create' });
+  return res.status(StatusCodes.CREATED).json(1);
 };
